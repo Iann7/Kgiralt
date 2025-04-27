@@ -1,0 +1,208 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3e5f5; /* violeta muy clarito */
+    color: #4a148c; /* violeta oscuro */
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #6a1b9a;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* para asegurarnos de que se quede arriba */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* pequeña sombra cuando scrollea */
+}
+
+.navbar-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Contact Button */
+.contact-button {
+    background-color: white;
+    color: #6a1b9a;
+    padding: 0.6em 1.2em;
+    border: 2px solid #6a1b9a;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #6a1b9a;
+    color: white;
+    box-shadow: 0 0 12px 2px rgba(106, 27, 154, 0.6);
+}
+
+/* Header */
+header {
+    background-color: #ba68c8; /* violeta más claro */
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Main Sections */
+.main-section {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4a148c;
+    border-bottom: 2px solid #6a1b9a;
+    padding-bottom: 0.5rem;
+}
+
+.main-section p, .main-section ul {
+    margin-bottom: 1rem;
+}
+
+.main-section ul {
+    padding-left: 1.5rem;
+}
+
+.main-section li {
+    list-style-type: disc;
+}
+
+/* Contact Section Special */
+.contacto a {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #6a1b9a;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.contacto a:hover {
+    background-color: #4a148c;
+}
+
+/* Footer */
+footer {
+    background-color: #6a1b9a;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Medias Queries para dispositivos móviles y tablets */
+@media (max-width: 1024px) {
+    .navbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-button {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .main-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .main-section p, .main-section li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .main-section {
+        padding: 20px;
+    }
+
+    .main-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+
+    .contacto a {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+} 
