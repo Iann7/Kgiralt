@@ -1,80 +1,489 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lic. Karina Giralt - Atención Psicológica </title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lic. Karina Giralt · Psicología integrativa</title>
+    <!-- Font Awesome 6 (gratuito) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f0fa;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            color: #2e1e3a;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fcfaff;
+            box-shadow: 0 20px 40px -12px rgba(120, 80, 150, 0.12);
+            border-radius: 2rem 2rem 1.5rem 1.5rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #ede4f5;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #f8f2ffdd;
+            backdrop-filter: blur(4px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e6d8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #3d2a4a;
+            letter-spacing: -0.3px;
+        }
+
+        .navbar-brand i {
+            color: #b28bc9;
+            margin-right: 0.5rem;
+        }
+
+        .contact-button {
+            background: #b28bc9;
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(150, 110, 180, 0.2);
+        }
+
+        .contact-button:hover {
+            background: #9f73b8;
+            transform: scale(1.02);
+            box-shadow: 0 6px 14px rgba(150, 110, 180, 0.3);
+        }
+
+        .contact-button i {
+            font-size: 1.2rem;
+        }
+
+        /* HEADER */
+        .hero {
+            background: linear-gradient(145deg, #f3ebfa, #faf5ff);
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid #e6d8f0;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: #2e1e3a;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #9f73b8;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #5f4a6e;
+            margin-top: 0.25rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .hero .subhead i {
+            color: #b28bc9;
+            margin: 0 0.3rem;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            padding: 2rem 2rem 1.5rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .main-content strong {
+            color: #4a2f5a;
+        }
+
+        .highlight-box {
+            background: #f5edfb;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0 1.8rem;
+            border-left: 6px solid #b28bc9;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 2.2rem;
+            margin-bottom: 1rem;
+            color: #3d2a4a;
+            border-bottom: 2px solid #e6d8f0;
+            padding-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title i {
+            color: #b28bc9;
+            font-size: 1.3rem;
+        }
+
+        /* Preguntas en forma de lista (estilo checklist) */
+        .preguntas-lista {
+            background: #f8f2fd;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 1.5rem 0 2rem;
+            border: 1px solid #e6d8f0;
+        }
+
+        .preguntas-lista p {
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #3d2a4a;
+        }
+
+        .preguntas-lista ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.2rem 0 0;
+        }
+
+        .preguntas-lista ul li {
+            padding: 0.45rem 0 0.45rem 2.2rem;
+            position: relative;
+            border-bottom: 1px solid #ede4f5;
+            margin-bottom: 0.15rem;
+            font-size: 1rem;
+        }
+
+        .preguntas-lista ul li:last-child {
+            border-bottom: none;
+        }
+
+        .preguntas-lista ul li::before {
+            content: "✧";
+            color: #b28bc9;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.4rem;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 2rem;
+            margin: 0.8rem 0 1.5rem;
+            padding-left: 0.2rem;
+        }
+
+        .grid-list li {
+            list-style: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .grid-list li::before {
+            content: "✦";
+            color: #b28bc9;
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin: 0.8rem 0 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        .modality-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            background: #f8f2fd;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            border: 1px solid #ede4f5;
+        }
+
+        .modality-grid p {
+            margin: 0;
+            flex: 1 0 180px;
+        }
+
+        .modality-grid i {
+            color: #9f73b8;
+            margin-right: 0.5rem;
+        }
+
+        .contact-section {
+            background: #f0e6f8;
+            padding: 2rem 2rem;
+            border-radius: 28px;
+            margin: 2.5rem 0 0.5rem;
+            text-align: center;
+            border: 1px solid #e0ceec;
+        }
+
+        .contact-section h2 {
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: #2e1e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section p {
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-wa {
+            display: inline-block;
+            background: #b28bc9;
+            color: white;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0.5rem 0 0.2rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(150, 110, 180, 0.25);
+        }
+
+        .btn-wa i {
+            margin-right: 0.6rem;
+        }
+
+        .btn-wa:hover {
+            background: #9f73b8;
+            transform: scale(1.02);
+        }
+
+        .footer {
+            background: #f3ebfa;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.9rem;
+            color: #5f4a6e;
+            border-top: 1px solid #e0ceec;
+            letter-spacing: 0.3px;
+        }
+
+        .footer i {
+            color: #b28bc9;
+            margin: 0 0.3rem;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .wrapper {
+                margin-top: 1rem;
+                border-radius: 1.5rem;
+            }
+
+            .navbar {
+                padding: 0.8rem 1.2rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-content {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .grid-list {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+
+            .highlight-box {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .modality-grid {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1.2rem;
+            }
+
+            .contact-section {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .preguntas-lista {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .contact-button {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="navbar-content">
-        <div class="navbar-brand">Lic. Karina Giralt</div>
+<div class="wrapper">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <i class="fas fa-feather-alt"></i> Lic. Karina Giralt
+        </div>
         <a class="contact-button" href="https://wa.me/541124574825" target="_blank">
-            Hablemos  <i class="fab fa-whatsapp"></i> 
+            <i class="fab fa-whatsapp"></i> Hablemos
         </a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Atención Psicológica <span>·</span> Especialista en Trauma complejo</h1>
+        <div class="subhead">
+            <i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle;"></i>
+            enfoque integrativo
+            <i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle;"></i>
+            perspectiva de género y derechos
+        </div>
     </div>
-</nav>
 
-<header>
-    <h1>Atención Psicológica</h1>
-    <p>Perspectiva de Derechos y Género</p>
-</header>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
 
-<main>
-    <section class="main-section">
-        <h2>Mi Enfoque</h2>
-        <p>Trabajo con perspectiva comunitaria, de derechos y de género. Considero válidas todas las teorías y escuelas psicológicas que ayuden a las personas a vivir mejor, apoyándose en los recursos y redes de su comunidad.</p>
+        <!-- Preguntas en lista: básicas juntas, oraciones separadas -->
+        <div class="preguntas-lista">
+            <p><strong>¿Sentís…?</strong></p>
+            <ul>
+                <li>ansiedad, cansancio, malestar físico, deseos compulsivos que no podés controlar</li>
+                <li>miedos, angustia, insomnio, falta de deseo o que perdiste el propósito de tu vida</li>
+                <li>que estás estancado, reaccionás con ira desmedida, no sabés cómo acompañar a tus hijos e hijas</li>
+                <li>baja autoestima, te juzgás y comparás con otros y otras</li>
+                <li>preguntas acerca de tu sexualidad</li>
+                <li>dudas de tu realidad, la culpa te gana cuando ponés límites o repetís vínculos que te lastiman</li>
+            </ul>
+            <p style="margin-top: 0.8rem;"><strong>Te ayudo a recuperar tu brújula interna.</strong></p>
+        </div>
 
-        <p>Tengo en cuenta los contextos socioeconómicos, culturales y políticos que afectan la salud, entendiendo que el bienestar para todes es posible con cambios sociales profundos.</p>
+        <p><strong>Soy Lic. en Psicología con enfoque integrativo. Me especializo en acompañar a personas que vivieron vínculos dañinos y necesitan reconstruirse.</strong></p>
 
-        <p>Desde la perspectiva de derechos, acompaño a las personas en la toma de conciencia sobre sus derechos vulnerados, sin revictimizarlas ni responsabilizarlas.</p>
-
-        <p>Desde la perspectiva de género, interpreto malestares individuales como consecuencia de mandatos y prácticas patriarcales que limitan la libertad de vivir según nuestros deseos e identidades.</p>
-
-        <p>Mi abordaje es ecléctico. Leo y me formo continuamente en diversas corrientes psicológicas y holísticas, eligiendo aquellas que han demostrado ser valiosas en mi propio proceso personal de sanación.</p>
-    </section>
-
-    <section class="main-section">
-        <h2>Áreas de Especialización</h2>
+        <!-- Trabajo principalmente con: -->
+        <p><strong>Trabajo principalmente con:</strong></p>
         <ul>
-            <li>Familias disfuncionales, trauma y codependencias.</li>
-            <li>Violencia de género y maltrato infantil.</li>
-            <li>Atención a niñes, adolescentes y adultes.</li>
+            <li><strong>Hijas e hijos de familias disfuncionales:</strong> Madres/padres narcisistas, emocionalmente inmaduros. Si viviste abuso emocional, abandono, maltrato, manipulación o fuiste el chivo expiatorio, este espacio es para vos.</li>
+            <li><strong>Personas que sufrieron abuso psicológico/emocional:</strong> En pareja, familia o trabajo. Cuando sentís que te apagaron o invalidaron.</li>
+            <li><strong>Trauma complejo:</strong> Culpa crónica, ansiedad, autoexigencia, codependencia, síndrome del salvador y dificultad para registrar necesidades sin sentirte egoísta.</li>
         </ul>
-    </section>
 
-    <section class="main-section">
-        <h2>Modalidades de Atención</h2>
-        <p>Atención virtual para adultes.</p>
-        <p>Atención presencial para niñes y adolescentes (zona Floresta, sujeta a disponibilidad de consultorios).</p>
-        <p>Honorarios comunitarios y modalidades accesibles:</p>
-        <ul>
-            <li>Turnos de 30 y 45 minutos (descuento por atención virtual).</li>
-            <li>Descuento por pack de sesiones.</li>
-            <li>Consultas de asesoramiento y orientación de 60 minutos.</li>
-        </ul>
-        <p>Finalizado el tratamiento, ofrezco consultas de monitoreo y acompañamiento esporádico.</p>
-    </section>
+        <!-- ¿Cómo es la terapia conmigo? -->
+        <div class="highlight-box">
+            <p><strong>¿Cómo es la terapia conmigo?</strong><br />
+            Directa, vivencial y con devoluciones claras. Mi enfoque está centrado en la persona y en todos los aspectos que hacen a su salud: emocional, mental, vincular y corporal.</p>
+            <p>No creo que la ansiedad, el estrés o la depresión "te pasen porque sí". Son consecuencias de una historia. Productos de heridas de infancia no reconocidas.</p>
+            <p>Por eso no nos quedamos solo en hablar. Combino varias teorías terapéuticas para trabajar desde lo que a VOS te sirva: registro corporal, cambio de patrones automáticos, escritura para ordenar tu historia, herramientas concretas para el día a día y comprensión de las raíces de tu problema. Respetando tus tiempos.</p>
+            <p>Sin vueltas ni frases hechas que invaliden tu dolor. Acá escuchamos lo que el síntoma viene a decir. Te escucho sin prejuicios y con profundo respeto por creencias espirituales y terapias alternativas que hayas transitado.</p>
+            <p>Trabajo desde una perspectiva de derechos, inclusiva, con enfoque de género y neurodiversidad.</p>
+        </div>
 
-    <section class="main-section">
-        <h2>Metodología de Trabajo</h2>
-        <p>Las primeras sesiones son de evaluación y diseño de tratamiento. Realizo señalamientos, devoluciones y orientaciones desde el comienzo.</p>
-        <p>Trabajo siempre contemplando el contexto de vida y la historia personal, dado que nuestra primera infancia marca profundamente nuestras conductas y representaciones.</p>
-    </section>
+        <!-- Modalidades -->
+        <div class="section-title">
+            <i class="fas fa-calendar-check"></i> Modalidades
+        </div>
+        <div class="modality-grid">
+            <p><i class="fas fa-laptop"></i> Sesiones online / Presenciales de 50 minutos</p>
+            <p><i class="fas fa-gem"></i> Packs con descuento a partir de la 5ta sesión</p>
+            <p><i class="fas fa-clock"></i> Consultas puntuales de 60-70 min con valor diferenciado.</p>
+        </div>
 
-    <section class="main-section contacto">
-        <h2>Contacto</h2>
-        <p>Podés comunicarte para realizar consultas o solicitar un turno. Tu consulta no molesta.</p>
-        <p><a href="https://wa.me/541124574825" target="_blank">Enviar mensaje por WhatsApp</a></p>
-    </section>
-</main>
+        <!-- Es para vos / No es para vos -->
+        <p><strong>Es para vos si querés ponerle nombre a lo que viviste, buscás herramientas que vayan más allá de la charla y estás lista/o para hacerte cargo de tu proceso.</strong><br />
+        <strong>No es para vos si buscás que cambie el otro. Trabajo con vos, no con ellos.</strong></p>
 
-<footer>
-    © 2025 Lic. Karina Giralt - Psicología Comunitaria
-</footer>
+        <!-- Contacto final -->
+        <div class="contact-section">
+            <h2><i class="fas fa-heart" style="color: #b28bc9; margin-right: 0.5rem;"></i> Contacto</h2>
+            <p>Podés comunicarte para realizar consultas o solicitar un turno. Tu consulta no molesta.</p>
+            <p>
+                <a class="btn-wa" href="https://wa.me/541124574825" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp
+                </a>
+            </p>
+            <p style="font-size: 0.9rem; margin-top: 0.4rem; color: #4d3a5a;"><i class="fas fa-phone-alt"></i> +54 11 2457-4825</p>
+        </div>
+
+        <!-- Honorarios y monitoreo -->
+        <div style="background: #f5edfb; padding: 1rem 1.5rem; border-radius: 18px; margin: 1.5rem 0 0.2rem; font-size: 0.95rem; border: 1px solid #e6d8f0;">
+            <p style="margin-bottom: 0.3rem;"><i class="fas fa-hand-holding-heart" style="color: #b28bc9; width: 1.6rem;"></i> <strong>Honorarios comunitarios y modalidades accesibles:</strong></p>
+            <ul style="margin: 0.2rem 0 0 1.2rem; padding-left: 0.8rem;">
+                <li>Turnos de 30 y 45 minutos (descuento por atención virtual).</li>
+                <li>Descuento por pack de sesiones.</li>
+                <li>Consultas de asesoramiento y orientación de 60 minutos.</li>
+            </ul>
+            <p style="margin-top: 0.5rem; margin-bottom: 0;"><i class="fas fa-seedling" style="color: #b28bc9; width: 1.6rem;"></i> Finalizado el tratamiento, ofrezco consultas de monitoreo y acompañamiento esporádico.</p>
+        </div>
+
+    </div> <!-- fin main-content -->
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <i class="fas fa-leaf"></i> © 2025 Lic. Karina Giralt · Psicología Clínica <i class="fas fa-leaf"></i>
+    </div>
+
+</div> <!-- fin wrapper -->
 
 </body>
 </html>
